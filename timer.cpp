@@ -4,6 +4,7 @@
 using namespace std;
 void beep_boop();
 int main(int argc, char **argv){
+    system("cls");
     if(argc < 2){
         cerr<<"Please Specify Time In Seconds!"<<"\n";
     }else if(argc > 2){
@@ -16,9 +17,9 @@ int main(int argc, char **argv){
         int minsec = counts % 3600;
         int mins = minsec / 60;
         int secs = minsec % 60;
-        cout<<"H: "<<hours<<" M: "<<mins<<" S: "<<secs<<"\n";
+        cout<<"H:"<<hours<<" M:"<<mins<<" S:"<<secs<<"\n";
         this_thread::sleep_for(chrono::milliseconds(1000));
-        cout<<"\033[H\033[2J";
+        system("cls");
         counts--;
     }
     if (counts == 0) timer_ended = true;
@@ -27,7 +28,7 @@ int main(int argc, char **argv){
     }
 }
 void beep_boop(){
-    cout<<"\033[H\033[2J";
+    system("cls");
     cout<<"TIMER ENDED!"<<"\n";
     while(true){
         Beep(300,500);
